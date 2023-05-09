@@ -1,26 +1,27 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Header from "./components/Header/Header";
+import {Route, Routes} from "react-router-dom";
+import Popular from "./components/Router/Popular";
+import NowPlaying from "./components/Router/NowPlaying";
+import TopRaght from "./components/Router/TopRaght";
+import DetailPage from "./components/DetailPage";
+import ActorPage from "./components/Action/ActorDetail/ActorPage";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const App = () => {
+
+    return (
+        <>
+            <Header/>
+            <Routes>
+                <Route path={'/popular'} element={<Popular/>}/>
+                <Route path={'/top-rated'} element={<TopRaght/>}/>
+                <Route path={'now-playing'} element={<NowPlaying/>}/>
+                <Route path={"/detailPage/:movieId"} element={<DetailPage/>}/>
+                <Route path={"/detailActor/:Id"} element={<ActorPage/>}/>
+
+            </Routes>
+        </>
+    );
+};
 
 export default App;
