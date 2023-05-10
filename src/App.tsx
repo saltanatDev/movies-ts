@@ -6,11 +6,15 @@ import NowPlaying from "./components/Router/NowPlaying";
 import TopRaght from "./components/Router/TopRaght";
 import DetailPage from "./components/DetailPage";
 import ActorPage from "./components/Action/ActorDetail/ActorPage";
+import {useAppSelector} from "./hooks/useAppSelector";
 
 const App = () => {
-
+    const {mode} = useAppSelector(s => s.popularSlice)
     return (
-        <>
+        <div style={{
+            background: mode ? "black" : "white ",
+            color: mode ? "white" : "black"
+        }}>
             <Header/>
             <Routes>
                 <Route path={'/popular'} element={<Popular/>}/>
@@ -20,7 +24,7 @@ const App = () => {
                 <Route path={"/detailActor/:Id"} element={<ActorPage/>}/>
 
             </Routes>
-        </>
+        </div>
     );
 };
 

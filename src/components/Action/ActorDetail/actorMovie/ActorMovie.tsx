@@ -32,7 +32,7 @@ const ActorMovie = () => {
                         <div className='mx-5 my-4'>
                             <img width={200}
                                  className='rounded-bl-full'
-                                 src={`https://www.themoviedb.org/t/p/w300_and_h450_bestv2/${el.poster_path}`} alt=""/>
+                                 src={`https://www.themoviedb.org/t/p/w300_and_h450_bestv2/${el.poster_path}`} alt="im"/>
                             <NavLink to={`/detailPage/${el.id}`}>
                                 <h1 className=' text-1xl px-3 pu-2 text-center my-5 font-bold  cursor-pointer '>{el.title}</h1>
                             </NavLink>
@@ -40,7 +40,6 @@ const ActorMovie = () => {
                     ))
                 }
                 </Slider>
-
             </div>
         </div>
     );

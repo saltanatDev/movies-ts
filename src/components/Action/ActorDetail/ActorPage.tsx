@@ -6,6 +6,8 @@ import {getActorDetail} from "../../../store/Reducer/ActionCreators";
 import ActorSlice from "./actorMovie/ActorMovie";
 
 const ActorPage = () => {
+    const {mode} = useAppSelector(s => s.popularSlice)
+
     const [more, setMore] = useState(300)
     const printText: any = (text: number[]) => {
         if (more === 300) {
@@ -28,9 +30,9 @@ const ActorPage = () => {
             <div className='flex items-start my-10'>
                 <img width={350}
                      className='border-2 '
-                     src={`https://www.themoviedb.org/t/p/w600_and_h900_bestv2/DPnessSsWqVXRbKm93PtMjB4Us.jpg`} alt=""/>
+                     src={`https://www.themoviedb.org/t/p/w600_and_h900_bestv2/${actor.profile_path}`} alt=""/>
                 <div className='ml-10'>
-                    <h1 className='text-3xl text-black font-bold py-5 '>{actor.name}</h1>
+                    <h1 className={`text-3xl text-black font-bold py-5 ${mode ? "text-white" : ""}`}>{actor.name}</h1>
                     {/*<h2>{actor.birthday}</h2>*/}
                     <h2 className='text-2xl text-black  py-2'>Биография</h2>
                     <p className='text-1xl '>{actor.biography && actor.biography.slice(0, more)}</p>
