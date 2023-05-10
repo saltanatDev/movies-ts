@@ -7,12 +7,14 @@ import PERSON from "../../Image/person-icon.png";
 
 const Popular = () => {
     const {movies, error, loader} = useAppSelector((state) => state.MoviesSlice)
-    // console.log(movies)
+    const{valueS}=useAppSelector((state)=> state.popularSlice)
     const {movieId} = useParams()
     const dispatch = useAppDispatch()
+
+
     useEffect(() => {
-        dispatch(getPopular())
-    }, [])
+        dispatch(getPopular(valueS))
+    }, [valueS])
 
     return (
         <div className='flex justify-between flex-wrap'>
@@ -26,7 +28,7 @@ const Popular = () => {
                                          src={`https://www.themoviedb.org/t/p/w220_and_h330_face${el.poster_path}`}
                                          alt=""/>
                                     :
-                                    <img src={PERSON} alt=""/>
+                                    <img src={`PERSON`} alt=""/>
                             }
                             <NavLink to={`/detailPage/${el.id}`}>
                                 <h1 className=' text-1xl px-3 pu-2 text-center my-5 font-bold  cursor-pointer '>{el.title}</h1>

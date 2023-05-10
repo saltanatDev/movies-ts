@@ -34,7 +34,7 @@ const ActionPage = () => {
                             <div className='items-center flex-wrap container'>
                                 <div>
                                     <img className=' py-10 ' width={200}
-                                         src={`https://www.themoviedb.org/t/p/w276_and_h350_face/${el.poster_path}`}
+                                         src={`https://www.themoviedb.org/t/p/w276_and_h350_face/${el.profile_path}`}
                                          alt=""/>
                                     <NavLink to={`/detailActor/${el.id}`}>
                                         <h1 className='text-2xl  px-2 fond-bold '>{el.name}</h1>

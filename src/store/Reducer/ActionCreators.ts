@@ -9,11 +9,11 @@ import {fetchingNow, fetchingNowPlayError, fetchingNowPlaySuccess} from "./Nowpl
 import {fetchingActorDetail, fetchingActorError, fetchingActorSuccess} from "../../components/Action/ActorDetail/ActorSlice";
 import {getActorsDetail, getActorsError, getActorsSuccess} from "../../components/Action/ActorDetail/actorMovie/actorMovieSlicew";
 
-export const getPopular = () => {
+export const getPopular = (valueS: any) => {
     return async (dispatch: AppDispatch) => {
         try {
             dispatch(fetchPopular())
-            const response = await axios(`https://api.themoviedb.org/3/movie/popular?api_key=${Apikey}&language=en-US&page=1`)
+            const response = await axios(`https://api.themoviedb.org/3/movie/popular?api_key=${Apikey}&language=${valueS}-US&page=1`)
             dispatch(fetchPopularSuccess(response.data.results))
         } catch (e: any) {
             dispatch(fetchPopularError(e.message))
